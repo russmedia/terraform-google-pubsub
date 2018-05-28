@@ -4,7 +4,7 @@ resource "google_pubsub_topic" "pubsub_topic" {
 }
 
 module "subscription" {
-  source            = "./subscription"
+  source            = "./modules/subscription"
   project           = "${google_pubsub_topic.pubsub_topic.project}"
   topicName         = "${google_pubsub_topic.pubsub_topic.name}"
   pullSubscriptions = "${var.definition["pull"]}"
