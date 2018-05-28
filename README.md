@@ -23,7 +23,7 @@ locals {
 }
 
 module "pubsub_all" {
-  source            = "github.com/russmedia/terraform-gcp-module-pubsub"
+  source            = "github.com/russmedia/terraform-google-pubsub"
   project           = "workspace-name"
   definition        = "${var.pubsub-x-definition}"
   iAm               = "${local.iAmAccount}"
