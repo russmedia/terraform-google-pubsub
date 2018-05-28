@@ -12,49 +12,29 @@ These types of resources are supported:
 
 e.g.: **pubsub.tf**
 ```hcl
-// Create an IAM reference and depends_on as a local variable - only for the reusablity purpouse.
-locals {
-  iAmAccount = {
-    "role"  = "roles/pubsub.editor"
-    "email" = "serviceAccount:${module.service-account-pubsub-editor.serviceaccount_email}"
+module "pubsub_module_name" {
+  source     = "github.com/russmedia/terraform-google-pubsub"
+  project    = "workspace-name"
+  definition = {
+    "name" = ["my-topic-name"]
+    "pull" = [
+      {
+        "name" = "some-pull-subscription-name"
+      }
+    ]
+    "push" = [
+      {
+        "name" = "my-subscription-name"
+        "url"  = "https://www.domain.tld/endpoint"
+      },
+    ]
   }
-
-  module_depends_on = ["module.service-account-pubsub-editor"]
-}
-
-module "pubsub_all" {
-  source            = "github.com/russmedia/terraform-google-pubsub"
-  project           = "workspace-name"
-  definition        = "${var.pubsub-x-definition}"
-  iAm               = "${local.iAmAccount}"
-  module_depends_on = "${local.module_depends_on}"
 }
 ```
 
-e.g.: **data.tfvars**
-```hcl
-pubsub-x-definition = {
-  "name" = ["my-topic-name"]
-  "pull" = [
-    {
-      "name" = "some-pull-subscription-name"
-    }
-  ]
-  "push" = [
-    {
-      "name" = "my-subscription-name"
-      "url"  = "https://www.domain.tld/endpoint"
-    },
-    {
-      "name"     = "other-subscription-name"
-      "url"      = "https://www.domain.tld/endpoint-2"
-      "deadline" = "120"
-    },
-  ]
-}
-```
+and see a plan with following command `terraform plan --out=.tfplan`. In case the output looks good you can apply with `terraform apply ".tfplan"`.
 
-and call it as `terraform plan -var-file=data.tfvars`.
+For more usage examples go to [Examples folder](./examples).
 
 _Note: You don't have to use *.tfvars file. It is just easier to switch when you have different data per environment._
 
