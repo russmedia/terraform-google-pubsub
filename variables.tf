@@ -28,12 +28,18 @@ variable "definition" {
         The list of PULL subscriptions should be defined by those attributes:
           - name
           - deadline (optional) (default: 10)
+          - retentionDuration (optional) (default: 604800)
+          - retainAcked (optional) (default: false)
+          - expirationTtl (optional) (default: 2678400})
 
       - push [list]
         The list of PUSH subscriptions should be defined by those attributes:
           - name
           - url
           - deadline (optional) (default: 10)
+          - retentionDuration (optional) (default: 604800)
+          - retainAcked (optional) (default: false)
+          - expirationTtl (optional) (default: 2678400)
   EOF
 }
 

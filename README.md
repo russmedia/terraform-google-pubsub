@@ -8,6 +8,10 @@ These types of resources are supported:
 * [Subscription](https://www.terraform.io/docs/providers/google/r/pubsub_subscription.html)
 * [Topic IAM member](https://www.terraform.io/docs/providers/google/r/pubsub_topic_iam.html)
 
+## Note
+
+If you wish to use `retentionDuration`, `retainAcked` or `expirationTtl` you need the `google` provider `~> 2.20`
+
 ## Usage
 
 e.g.: **pubsub.tf**
