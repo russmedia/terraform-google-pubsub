@@ -1,13 +1,13 @@
 variable "topicName" {
-  type = "string"
+  type = string
 }
 
 variable "project" {
-  type = "string"
+  type = string
 }
 
 variable "pullSubscriptions" {
-  type = "list"
+  type = list(map(string))
 
   description = <<EOF
     List of PULL subscriptions.
@@ -18,10 +18,11 @@ variable "pullSubscriptions" {
      - retainAcked (optional) (default: false)
      - expirationTtl (optional) (default: 2678400)
 EOF
+
 }
 
 variable "pushSubscriptions" {
-  type = "list"
+  type = list(map(string))
 
   description = <<EOF
     List of PUSH subscriptions.
@@ -33,4 +34,6 @@ variable "pushSubscriptions" {
      - retainAcked (optional) (default: false)
      - expirationTtl (optional) (default: 2678400)
 EOF
+
 }
+

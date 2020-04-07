@@ -1,7 +1,11 @@
-variable "project" {}
+variable "project" {
+}
 
 variable "iAm" {
-  type = "map"
+  type = object({
+    role  = string
+    email = string
+  })
 
   description = <<EOF
     Map of service account used to set permissions for a topic."
@@ -9,7 +13,9 @@ variable "iAm" {
     Attributes:
       - role  [string]
       - email [string]
-  EOF
+  
+EOF
+
 
   default = {
     "role"  = ""
@@ -18,7 +24,11 @@ variable "iAm" {
 }
 
 variable "definition" {
-  type = "map"
+  type = object({
+    name = list(string)
+    pull = list(map(string))
+    push = list(map(string))
+  })
 
   description = <<EOF
     Attributes:
@@ -40,11 +50,14 @@ variable "definition" {
           - retentionDuration (optional) (default: 604800)
           - retainAcked (optional) (default: false)
           - expirationTtl (optional) (default: 2678400)
-  EOF
+  
+EOF
+
 }
 
 variable "module_depends_on" {
-  type        = "list"
+  type        = list(string)
   description = "The module which should be created before Pub/Sub, required if iAm is used."
   default     = []
 }
+

@@ -8,6 +8,9 @@ These types of resources are supported:
 * [Subscription](https://www.terraform.io/docs/providers/google/r/pubsub_subscription.html)
 * [Topic IAM member](https://www.terraform.io/docs/providers/google/r/pubsub_topic_iam.html)
 
+# Compatibility
+This module is meant for use with Terraform 0.12. If you haven't upgraded and need a Terraform 0.11.x-compatible version of this module, the last released version intended for Terraform 0.11.x is 2.0.0.
+
 ## Note
 
 If you wish to use `retentionDuration`, `retainAcked` or `expirationTtl` you need the `google` provider `~> 2.20`
