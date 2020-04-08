@@ -28,6 +28,7 @@ e.g.: **pubsub.tf**
 ```hcl
 module "pubsub_module_name" {
   source     = "github.com/russmedia/terraform-google-pubsub"
+  version    = "3.0.0"
   project    = "workspace-name"
   definition = {
     "name" = ["my-topic-name"]
