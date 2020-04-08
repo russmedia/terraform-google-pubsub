@@ -15,12 +15,8 @@ This module is meant for use with Terraform 0.12. If you haven't upgraded and ne
 # Installation Dependencies
 
 - [terraform](https://www.terraform.io/downloads.html) 0.12.x
-- [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v2.5.x
+- [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v2.20.x or higher
 
-
-## Note
-
-If you wish to use `retentionDuration`, `retainAcked` or `expirationTtl` you need the [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) `~> 2.20`
 
 ## Usage
 
