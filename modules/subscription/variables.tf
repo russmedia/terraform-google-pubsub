@@ -18,7 +18,6 @@ variable "pullSubscriptions" {
      - retainAcked (optional) (default: false)
      - expirationTtl (optional) (default: 2678400)
 EOF
-
 }
 
 variable "pushSubscriptions" {
@@ -34,6 +33,4 @@ variable "pushSubscriptions" {
      - retainAcked (optional) (default: false)
      - expirationTtl (optional) (default: 2678400)
 EOF
-
 }
-

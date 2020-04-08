@@ -13,9 +13,7 @@ variable "iAm" {
     Attributes:
       - role  [string]
       - email [string]
-  
 EOF
-
 
   default = {
     "role"  = ""
@@ -50,9 +48,7 @@ variable "definition" {
           - retentionDuration (optional) (default: 604800)
           - retainAcked (optional) (default: false)
           - expirationTtl (optional) (default: 2678400)
-  
 EOF
-
 }
 
 variable "module_depends_on" {
@@ -60,4 +56,3 @@ variable "module_depends_on" {
   description = "The module which should be created before Pub/Sub, required if iAm is used."
   default     = []
 }
-
