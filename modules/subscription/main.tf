@@ -50,4 +50,3 @@ resource "google_pubsub_subscription" "pubsub_subscription_push" {
     push_endpoint = var.pushSubscriptions[count.index]["url"]
   }
 }
-

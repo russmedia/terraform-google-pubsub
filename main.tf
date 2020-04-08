@@ -24,4 +24,3 @@ resource "google_pubsub_topic_iam_policy" "role" {
   topic       = google_pubsub_topic.pubsub_topic.name
   policy_data = data.google_iam_policy.role.policy_data
 }
-

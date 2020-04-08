@@ -1,5 +1,4 @@
-variable "project" {
-}
+variable "project" {}
 
 variable "iAm" {
   type = object({
@@ -13,7 +12,7 @@ variable "iAm" {
     Attributes:
       - role  [string]
       - email [string]
-EOF
+  EOF
 
   default = {
     "role"  = ""
@@ -48,7 +47,7 @@ variable "definition" {
           - retentionDuration (optional) (default: 604800)
           - retainAcked (optional) (default: false)
           - expirationTtl (optional) (default: 2678400)
-EOF
+  EOF
 }
 
 variable "module_depends_on" {
