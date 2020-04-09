@@ -1,7 +1,10 @@
 variable "project" {}
 
 variable "iAm" {
-  type = "map"
+  type = object({
+    role  = string
+    email = string
+  })
 
   description = <<EOF
     Map of service account used to set permissions for a topic."
@@ -18,7 +21,11 @@ variable "iAm" {
 }
 
 variable "definition" {
-  type = "map"
+  type = object({
+    name = list(string)
+    pull = list(map(string))
+    push = list(map(string))
+  })
 
   description = <<EOF
     Attributes:
@@ -44,7 +51,7 @@ variable "definition" {
 }
 
 variable "module_depends_on" {
-  type        = "list"
+  type        = list(string)
   description = "The module which should be created before Pub/Sub, required if iAm is used."
   default     = []
 }

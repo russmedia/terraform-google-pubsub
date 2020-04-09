@@ -1,13 +1,13 @@
 variable "topicName" {
-  type = "string"
+  type = string
 }
 
 variable "project" {
-  type = "string"
+  type = string
 }
 
 variable "pullSubscriptions" {
-  type = "list"
+  type = list(map(string))
 
   description = <<EOF
     List of PULL subscriptions.
@@ -21,7 +21,7 @@ EOF
 }
 
 variable "pushSubscriptions" {
-  type = "list"
+  type = list(map(string))
 
   description = <<EOF
     List of PUSH subscriptions.

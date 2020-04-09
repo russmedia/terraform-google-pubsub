@@ -8,9 +8,15 @@ These types of resources are supported:
 * [Subscription](https://www.terraform.io/docs/providers/google/r/pubsub_subscription.html)
 * [Topic IAM member](https://www.terraform.io/docs/providers/google/r/pubsub_topic_iam.html)
 
-## Note
+# Compatibility
+This module is meant for use with Terraform 0.12. If you haven't upgraded and need a Terraform 0.11.x-compatible version of this module, the last released version intended for Terraform 0.11.x is 2.0.0.
 
-If you wish to use `retentionDuration`, `retainAcked` or `expirationTtl` you need the `google` provider `~> 2.20`
+
+# Installation Dependencies
+
+- [terraform](https://www.terraform.io/downloads.html) 0.12.x
+- [terraform-provider-google](https://github.com/terraform-providers/terraform-provider-google) plugin v2.20.x or higher
+
 
 ## Usage
 
@@ -18,6 +24,7 @@ e.g.: **pubsub.tf**
 ```hcl
 module "pubsub_module_name" {
   source     = "github.com/russmedia/terraform-google-pubsub"
+  version    = "3.0.0"
   project    = "workspace-name"
   definition = {
     "name" = ["my-topic-name"]
